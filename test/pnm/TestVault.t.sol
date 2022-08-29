@@ -5,7 +5,7 @@ import "forge-std/Test.sol";
 import "contracts/Vault.sol";
 import "@pwnednomore/contracts/Agent.sol";
 
-contract FuzzVault is Test, Agent {
+contract TestVault is Test, Agent {
     Vault vault;
 
     address USER = address(0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB);
