@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "./FuzzVault.t.sol";
+import "./TestVault.t.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract FuzzBalance is FuzzVault {
+contract TestBalance is TestVault {
     function setUp() external {
         // Deploy the smart contracts
         deploy();
