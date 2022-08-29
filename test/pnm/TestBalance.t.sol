@@ -6,13 +6,13 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract TestBalance is TestVault {
     function setUp() external {
-        // Deploy the smart contracts
+        // Step 1. Deploy the smart contracts
         deploy();
 
-        // User owned 1 ether in the vault
+        // Step 2. User owned 1 ether in the vault
         deposit(USER, 1 ether);
 
-        // Attacker (we) owned 100000 wei in the vault
+        // Step 3. Attacker (we) owned 100000 wei in the vault
         deposit(address(this), 100000 wei);
     }
 
