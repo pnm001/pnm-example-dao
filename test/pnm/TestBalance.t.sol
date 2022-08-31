@@ -22,6 +22,7 @@ contract TestBalance is TestVault {
         // INVARAINT:
         // The vault should always have at least 1 ether.
         // Otherwise, User cannot get the fund back.
+        
         require(
             balance >= 1 ether,
             string(
