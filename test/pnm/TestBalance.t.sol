@@ -12,7 +12,7 @@ contract TestBalance is TestVault {
         // Step 2. User owned 1 ether in the vault
         deposit(USER, 1 ether);
 
-        // Step 3. Attacker (we) owned 100000 wei in the vault
+        // Step 3. Attacker (we) owned 0.0000000000001 ether in the vault
         deposit(address(this), 100000 wei);
     }
 
