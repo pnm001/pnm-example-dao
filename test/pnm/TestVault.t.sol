@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "forge-std/Test.sol";
 import "contracts/Vault.sol";
 import "@pwnednomore/contracts/Agent.sol";
 
-contract TestVault is Test, Agent {
+contract TestVault is Agent {
     Vault vault;
 
     address USER = address(0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB);

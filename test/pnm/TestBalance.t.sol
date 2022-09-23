@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 
 import "./TestVault.t.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract TestBalance is TestVault {
     function setUp() external {
@@ -21,17 +20,7 @@ contract TestBalance is TestVault {
 
         // INVARAINT:
         // The vault should always have at least 1 ether.
-        // Otherwise, User cannot get the fund back.
-        
-        require(
-            balance >= 1 ether,
-            string(
-                abi.encodePacked(
-                    "[!!!] Invariant violation: vault is stolen (",
-                    Strings.toString(balance),
-                    ")"
-                )
-            )
-        );
+        // Otherwise, User cannot get the fund back. 
+        require(balance >= 1 ether, "vault is stolen");
     }
 }
