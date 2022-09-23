@@ -1,13 +1,14 @@
-# Sample Hardhat Project
+# Sample Project: Vault
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This reproduces [the infamous DAO hack](https://quantstamp.com/blog/what-is-a-re-entrancy-attack).
 
-Try running some of the following tasks:
+## Invariant
+Without interacting with the vault contract on behalf of the benign user(s), the balance of the vault contract has a lower bound.
 
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+In our example test, `1 ether` is the amount the benign user owned in the vault.
 ```
+address(vault).balance >= 1 ether
+```
+
+## Test File
+[TestBalance.t.sol](./test/pnm/TestBalance.t.sol)
