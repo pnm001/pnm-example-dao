@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "./TestVault.t.sol";
+import "./VaultTest.t.sol";
 
-contract TestBalance is TestVault {
+contract BalanceTest is VaultTest {
     function setUp() external {
         // Step 1. Deploy the smart contracts
         deploy();
@@ -15,12 +15,10 @@ contract TestBalance is TestVault {
         deposit(address(this), 100000 wei);
     }
 
-    function check() external override {
-        uint256 balance = address(vault).balance;
-
+    function invariantBalanceLowerLimit() external view {
         // INVARAINT:
         // The vault should always have at least 1 ether.
-        // Otherwise, User cannot get the fund back. 
-        require(balance >= 1 ether, "vault is stolen");
+        // Otherwise, User cannot get the fund back.  
+        require(address(vault).balance >= 1 ether, "User fund loss");
     }
 }
